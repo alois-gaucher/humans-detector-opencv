@@ -1,6 +1,10 @@
 # face_detector
 ## Usage
 Install python and pip
+Install tk library
+```bash
+pip3 install tk
+```
 Create a images folder at the root of the project
 ```bash
 mkdir images
