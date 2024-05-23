@@ -76,6 +76,9 @@ def rename_and_copy_images_in_folder(input_folder, output_folder, backup_folder,
     if not image_found:
         print("No pictures found")
 
+    # Open the output folder in Finder
+    os.system(f'open "{output_folder}"')
+
 def clear_output():
     output_text.configure(state='normal')
     output_text.delete(1.0, tk.END)
