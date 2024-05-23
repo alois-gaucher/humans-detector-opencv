@@ -4,7 +4,6 @@ import shutil
 import tkinter as tk
 from tkinter import filedialog
 import sys
-from io import StringIO
 
 class TextRedirector(object):
     def __init__(self, widget, terminal):
@@ -52,7 +51,7 @@ def rename_and_copy_images_in_folder(input_folder, output_folder, backup_folder,
 
     image_found = False
     for filename in os.listdir(input_folder):
-        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG')):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_found = True
             image_path = os.path.join(input_folder, filename)
             print(f"Processing {filename}...")
