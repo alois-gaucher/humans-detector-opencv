@@ -35,8 +35,10 @@ def rename_and_copy_images_in_folder(folder_path):
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
 
+    image_found = False
     for filename in os.listdir(folder_path):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG')):
+            image_found = True
             image_path = os.path.join(folder_path, filename)
             person_count = count_people_in_image(image_path)
             file_base, file_extension = os.path.splitext(filename)
@@ -53,6 +55,9 @@ def rename_and_copy_images_in_folder(folder_path):
                 copy_image_path = os.path.join(output_folder_path, copy_filename)
                 shutil.copy(new_image_path, copy_image_path)
                 print(f"Created copy '{copy_filename}'")
+
+    if not image_found:
+        print("No pictures found")
 
 if __name__ == "__main__":
     folder_path = './images'
