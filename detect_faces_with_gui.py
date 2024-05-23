@@ -81,9 +81,10 @@ if __name__ == "__main__":
     if tkinter_available:
         # Use tkinter to open file dialog for folder selection
         Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-        input_folder = filedialog.askdirectory(title="Select Input Folder")
-        output_folder = filedialog.askdirectory(title="Select Output Folder")
-        backup_folder = filedialog.askdirectory(title="Select Backup Folder")
+        initialdir = os.path.dirname(os.path.abspath(__file__))
+        input_folder = filedialog.askdirectory(message="Select Input Folder", initialdir=initialdir)
+        output_folder = filedialog.askdirectory(message="Select Output Folder", initialdir=initialdir)
+        backup_folder = filedialog.askdirectory(message="Select Backup Folder", initialdir=initialdir)
 
         if input_folder and output_folder and backup_folder:
             rename_and_copy_images_in_folder(input_folder, output_folder, backup_folder)
